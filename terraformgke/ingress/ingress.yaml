@@ -1,0 +1,23 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: web.devopsisfun.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: web
+              port:
+                number: 80
+# tls:
+# - hosts:
+# - web.devopsisfun.command: 
+# secretName: web-tls

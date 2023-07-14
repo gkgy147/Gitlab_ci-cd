@@ -1,0 +1,44 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "2"
+  creationTimestamp: "2023-07-12T10:47:57Z"
+  generation: 2
+  labels:
+    app: python-webapp
+  name: python-webapp
+  namespace: default
+  resourceVersion: "1025139"
+  uid: 98ab7d2a-d131-4fcf-8e12-d712ed0c78c2
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: python-webapp
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+	app: python-webapp
+    spec:
+      containers:
+      - image: asia-southeast1-docker.pkg.dev/devopsisfun/pythonwebapp/pythonapp:v1.0
+        imagePullPolicy: IfNotPresent
+        name: pythonapp
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log

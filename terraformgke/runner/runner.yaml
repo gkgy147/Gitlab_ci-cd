@@ -1,0 +1,12 @@
+replicas: 1
+gitlabUrl: https://gitlab.com/
+runnerRegistrationToken: "glrt-Rde_5LKJSxsej7X8vH_m"
+concurrent: 10
+logLevel: info
+logFormat: json
+rbac:
+ create: true
+namespace: gitlabrunner
+podLabels: { run: gitlab-ci }
+runners:
+ privileged: true
