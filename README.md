@@ -300,3 +300,5 @@ podLabels: { run: gitlab-ci }
 runners:
  privileged: true
 ```
+
+***TO BE CONTINUED***
